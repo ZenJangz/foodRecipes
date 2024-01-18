@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
     $Position = mysqli_real_escape_string($connect, $_POST['Position']);
 
     $result = mysqli_query($connect, "SELECT * FROM user WHERE username = '$username'") or die (mysqli_error($connect));
-if (mysqli_num_rows($result) > 0) {
+if (mysqli_num_rows($result) > 1) {
     // Username already exists, set session alert and redirect
     $_SESSION['Alert'] = "Username นี้ถูกใช้ไปแล้ว";
     $_SESSION['Setcolor'] = 'text-danger';
