@@ -191,7 +191,7 @@ include 'connect.php';
                                 <input id="email" name="email"  class="form-control" required>
                             </div>
                             <div class="col-sm-2">
-                                <label for="Position"class="m-b-10 f-w-600 form-label">Position <span class=" text-danger" style="font-size: 0.8rem;">1=Admin, 0=Normal user</span></label>
+                                <label for="Position"class="m-b-10 f-w-600 form-label">Position <span class=" text-danger" style="font-size: 0.8rem;">1=Admin, 0=Member</span></label>
                                 <input id="Position" name="Position" class="form-control" required>
                             </div>
                         </div>
