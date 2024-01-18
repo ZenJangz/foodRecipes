@@ -1,7 +1,7 @@
 <?php
 session_start();
-if($_SESSION['Position']==0){
-    echo'
+if ($_SESSION['Position'] == 0) {
+    echo '
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -20,7 +20,7 @@ if($_SESSION['Position']==0){
         <a href="/food_web/index.php">&larr; Back to Dashboard</a>
     </div>';
     exit;
-  }
+}
 include 'connect.php';
 
 
@@ -41,6 +41,8 @@ $data = mysqli_fetch_array($result);
     <title>Add-Menu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js"></script>
     <style>
         body {
             font-family: 'Noto Sans Thai', sans-serif;
@@ -110,21 +112,28 @@ $data = mysqli_fetch_array($result);
 <?php include('AdminHeader.php'); ?>
 
 <body>
-    <h1 class="text-center mt-5 pb-5">แก้ไขเมนู <?=$data['Menu_name']?></h1>
+    <h1 class="text-center mt-5 pb-5">แก้ไขเมนู <?= $data['Menu_name'] ?></h1>
 
-    <?php if (!empty($_SESSION['Alert'])) { ?>
-        <div class="alert alert-warning text-center justify-content-center align-items-center m-auto" style="width: 45vw;" role="alert">
-            <?= $_SESSION['Alert']; ?>
-        </div>
-    <?php } ?>
     <?php
-        if(!empty($_SESSION['Alert'])){
-            unset($_SESSION['Alert']);
-        }
-    ?>
+    if (!empty($_SESSION['Alert'])) : ?>
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "<?= $_SESSION['SWA-ICO'] ?>",
+                title: "เมนู <?= $_SESSION['Up_menuname'] ?> ได้รับการบันทึกแล้ว",
+                showConfirmButton: false,
+                timer: 2500
+            });
+        </script>
+    <?php endif ?>
+    <?php unset($_SESSION['SWA-ICO']);
+    unset($_SESSION['Alert']);
+    unset($_SESSION['Up_menuname']); ?>
+
+
     <div class="container d-flex justify-content-center flex-wrap m-auto">
         <h3 class=" text-danger text-center mt-3">-*-*-*-*-*สกิดช่องนิดหน่อยเดี่ยว Preview ก็จะมา-*-*-*-*-*-</h3>
-        <form action="Admin-MenuEdit-Pro.php?id=<?=$pid?>" method="POST" class="m-auto" enctype="multipart/form-data">
+        <form action="Admin-MenuEdit-Pro.php?id=<?= $pid ?>" method="POST" class="m-auto" enctype="multipart/form-data">
             <div class="row g-3 m-auto justify-content-center">
                 <div class="col">
                     <label for="inputMenu1" class="form-label">ชื่อเมนู</label>
@@ -187,9 +196,9 @@ $data = mysqli_fetch_array($result);
                                                                                                                                                                                 if (!empty($data['Img_Name_Main'])) {
                                                                                                                                                                                     echo 'Admin/Image_Uploaded/' . $data['Img_Name_Main'];
                                                                                                                                                                                 } else {
-                                                                                                                                                                                    if(!empty($data['Img_URL_Main'])){
+                                                                                                                                                                                    if (!empty($data['Img_URL_Main'])) {
                                                                                                                                                                                         echo $data['Img_URL_Main'];
-                                                                                                                                                                                    }else{
+                                                                                                                                                                                    } else {
                                                                                                                                                                                         echo '';
                                                                                                                                                                                     }
                                                                                                                                                                                 }
@@ -208,9 +217,9 @@ $data = mysqli_fetch_array($result);
                                                                                                                                                                                     if (!empty($data['Image_URL_Sec1'])) {
                                                                                                                                                                                         echo $data['Image_URL_Sec1'];
                                                                                                                                                                                     } else {
-                                                                                                                                                                                        if(!empty($data['Img_Name_Sec1'])){
+                                                                                                                                                                                        if (!empty($data['Img_Name_Sec1'])) {
                                                                                                                                                                                             echo 'Admin/Image_Uploaded/' . $data['Img_Name_Sec1'];
-                                                                                                                                                                                        }else{
+                                                                                                                                                                                        } else {
                                                                                                                                                                                             echo '';
                                                                                                                                                                                         }
                                                                                                                                                                                     }
@@ -229,9 +238,9 @@ $data = mysqli_fetch_array($result);
                                                                                                                                                                                     if (!empty($data['Image_URL_Sec2'])) {
                                                                                                                                                                                         echo $data['Image_URL_Sec2'];
                                                                                                                                                                                     } else {
-                                                                                                                                                                                        if(!empty($data['Img_Name_Sec2'])){
+                                                                                                                                                                                        if (!empty($data['Img_Name_Sec2'])) {
                                                                                                                                                                                             echo 'Admin/Image_Uploaded/' . $data['Img_Name_Sec2'];
-                                                                                                                                                                                        }else{
+                                                                                                                                                                                        } else {
                                                                                                                                                                                             echo '';
                                                                                                                                                                                         }
                                                                                                                                                                                     }
@@ -252,9 +261,9 @@ $data = mysqli_fetch_array($result);
                                                                                                                                                                                     if (!empty($data['Image_URL_Sec3'])) {
                                                                                                                                                                                         echo $data['Image_URL_Sec3'];
                                                                                                                                                                                     } else {
-                                                                                                                                                                                        if(!empty($data['Img_Name_Sec3'])){
+                                                                                                                                                                                        if (!empty($data['Img_Name_Sec3'])) {
                                                                                                                                                                                             echo 'Admin/Image_Uploaded/' . $data['Img_Name_Sec3'];
-                                                                                                                                                                                        }else{
+                                                                                                                                                                                        } else {
                                                                                                                                                                                             echo '';
                                                                                                                                                                                         }
                                                                                                                                                                                     }
@@ -269,7 +278,7 @@ $data = mysqli_fetch_array($result);
                     <div class="YT-Position col">
                         <label for="youtube-url">ลิงก์อ้างอิง Youtube หรือ วิธีทำใน Youtube:</label>
                         <p class="text-danger">**ถ้าตัวเล่นวีดีโอไม่มาให้เปลี่ยนลิงก์**</p>
-                        <input class="form-control" type="text" id="youtube-url" placeholder="Enter YouTube URL" required name="YT_URL" value="<?= $data['YT_URL'];?>">
+                        <input class="form-control" type="text" id="youtube-url" placeholder="Enter YouTube URL" required name="YT_URL" value="<?= $data['YT_URL']; ?>">
                         <br>
                         <div class="YT-V-Size" id="player"></div>
                     </div>

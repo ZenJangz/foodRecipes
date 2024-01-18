@@ -83,11 +83,15 @@ if(isset($_POST['submit'])){
         $result = mysqli_query($connect, $sql) or die (mysqli_error($connect)); 
         if ($result){
             $_SESSION['Alert'] = "บันทึกข้อมูลสำเร็จ";
+            $_SESSION['SWA-ICO'] = 'success';
+            $_SESSION['Up_menuname'] = $Menu_name;
             header("Location: Admin-MenuEdit.php?id=$pid");
             // echo $YT_URL;
             exit();
         } else {
             $_SESSION['Alert'] = "บันทึกข้อมูลผิดพลาดโปรดลองใหม่";
+            $_SESSION['SWA-ICO'] = 'error';
+            $_SESSION['Up_menuname'] = $Menu_name;
             header("Location: Admin-MenuEdit.php?id=$pid");
             // echo $YT_URL;
             exit();

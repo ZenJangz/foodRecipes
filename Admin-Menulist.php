@@ -26,6 +26,7 @@ include 'connect.php';
 $sql = "SELECT * FROM menu_data";
 $query_Menu = mysqli_query($connect, $sql);
 
+
 if (!$query_Menu) {
     die("Query failed: " . mysqli_error($connect));
 }
@@ -47,6 +48,8 @@ $query_Menu = mysqli_query($connect, $sql);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="AdminHome.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js"></script>
     <style>
         .ImgHover {
             border-radius: 0px;
@@ -135,12 +138,16 @@ $query_Menu = mysqli_query($connect, $sql);
     </div>
     <div id="searchResult"></div>
 
-    <?php
-    if (!empty($_SESSION['Alert'])) {
-    ?>
-        <h2 class="text-center mt-3 bg-danger text-white"><?php
-                                                            echo $_SESSION['Alert'];
-                                                            ?></h2>
+    <?php if (!empty($_SESSION['Alert'])) { ?>
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "<?= $_SESSION['Alert'] ?>",
+                showConfirmButton: false,
+                timer: 3500
+            });
+        </script>
     <?php } ?>
 
     <?php unset($_SESSION['Alert']) ?>
@@ -150,23 +157,78 @@ $query_Menu = mysqli_query($connect, $sql);
                 <section class="HoverThis mt-5" style="max-width: 20%;">
                     <div class="card mx-2">
                         <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <!-- <a href=""> -->
+                            <a href="Admin-Menu-Detail.php?id=<?= $data['id_menu'] ?>">
                             <img src="<?php echo getImageUrl($data); ?>" alt="Menu Image" class="img-fluid w-100 ImgHover" style="max-height: 20vh; object-fit:cover;">
-                            <!-- </a> -->
+                            </a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold"><a><?= $data['Menu_name']; ?></a></h5>
                             <p class="mb-2"><i class="fa-solid fa-bowl-food me-1"></i> • อาหาร </p>
                             <p class="card-text"><?= $data['Menu_EP']; ?></p>
                             <hr class="my-4" />
-                            <p class="lead text-center"><strong>จัดการ</strong></p>
+                            <p class="lead text-center"><strong>จัดการ <?= $data['id_menu'] ?></strong></p>
                             <a href="Admin-MenuEdit.php?id=<?= $data['id_menu']; ?>" class=" btn btn-danger p-md-1 mb-0 w-100"><i class="fa-solid fa-pen-to-square me-1"></i>แก้ไข</a>
-                            <a href="Admin-MenuDelete.php?id=<?= $data['id_menu']; ?>" onclick="return confirm('แน่ใจนะว่าจะลบเมนู: <?= $data['Menu_name'] ?> ID: <?= $data['id_menu'] ?>')" role="botton" class=" btn btn-danger p-md-1 mb-0 w-100 mt-2"><i class="fa-solid fa-pen-to-square me-1"></i>ลบ</a>
+                            <a href="" class="btn btn-danger p-md-1 mb-0 w-100 mt-2 delete-menu-link" data-menu-id="<?= $data['id_menu']; ?>" data-menu-name="<?= $data['Menu_name']; ?>"><i class="fa-solid fa-pen-to-square me-1"></i>ลบ</a>
+
                         </div>
                     </div>
                 </section>
             <?php endforeach; ?>
         </div>
+        <script>
+            // ตรวจสอบว่ามีการตั้ง $_SESSION['Alert'] หรือไม่
+            <?php if (isset($_SESSION['Alert'])) : ?>
+                <?php if ($_SESSION['Alert']['type'] === 'success') : ?>
+                    // แสดง SweetAlert สำหรับการลบเมนูสำเร็จ
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                <?php elseif ($_SESSION['Alert']['type'] === 'error') : ?>
+                    // แสดง SweetAlert สำหรับการลบเมนูที่เกิดข้อผิดพลาด
+                    Swal.fire({
+                        title: "Error!",
+                        text: "<?php echo $_SESSION['Alert']['message']; ?>",
+                        icon: "error"
+                    });
+                <?php endif; ?>
+            <?php endif; ?>
+
+            // ตรวจสอบคลิกลิงค์ลบเมนู
+            document.addEventListener("DOMContentLoaded", function() {
+                var deleteMenuLinks = document.querySelectorAll('.delete-menu-link');
+                deleteMenuLinks.forEach(function(link) {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        var menuId = this.getAttribute('data-menu-id');
+                        var menuName = this.getAttribute('data-menu-name'); // เพิ่มตัวแปรนี้
+
+                        // แสดง SweetAlert สำหรับการยืนยันการลบ
+                        Swal.fire({
+                            title: "ต้องการลบเมนู " + menuName + " ออกจากระบบ??",
+                            text: "คำเตือนไม่สามารถกู้คืนรายการที่ถูกลบได้",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "ใช่ ลบเมนู " + menuName + " !!"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // ลิงค์ไปยังหน้า Admin-MenuDelete.php พร้อมส่งค่า id_menu
+                                window.location.href = "Admin-MenuDelete.php?id=" + menuId;
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+
+
+
+
+        <?php unset($_SESSION['Alert']);
+        unset($_SESSION['Menu-Name']) ?>
         <?php
         function getImageUrl($data)
         {
@@ -219,6 +281,10 @@ $query_Menu = mysqli_query($connect, $sql);
                 });
             });
         </script>
+
+
+
+
 </body>
 
 </html>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'connect.php';
 
 $username = $_POST['username'];
@@ -15,7 +16,6 @@ if (empty($username) || empty($password) || empty($email)) {
 $result = mysqli_query($connect, "SELECT * FROM user WHERE username = '$username'");
 if (mysqli_num_rows($result) > 0) {
     // Username already exists, set session alert and redirect
-    session_start();
     $_SESSION['Alert_Login'] = "Username นี้ถูกใช้ไปแล้ว";
     header("Location: Regis.php");
     exit();
@@ -24,5 +24,8 @@ if (mysqli_num_rows($result) > 0) {
 // Username is unique, proceed to insert into database
 mysqli_query($connect, "INSERT INTO user (username, password, email, Position) VALUE ('$username', '$password', '$email', '0')");
 
-header("Location: LoginPAGE/login.php");
+// header("Location: LoginPAGE/login.php");
+$_SESSION['Alert'] = 'สมัครใช้งานเรียบร้อยแล้ว';
+header("Location: Regis.php");
+
 ?>

@@ -34,9 +34,11 @@
         $sql = "DELETE FROM menu_data WHERE id_menu = '$Mid'";
         $query = mysqli_query($connect, $sql);
         if($query == TRUE){
+            $_SESSION['Menu-Name'] = $data['Menu_name'];
             $_SESSION['Alert'] = 'ลบเมนู '.$data['Menu_name']. ' ID: '.$data['id_menu'].' ออกจากระบบแล้ว';
             header('location: Admin-Menulist.php#'.$Mid);
         }else{
+            $_SESSION['Menu-Name'] = $data['Menu_name'];
             $_SESSION['Alert'] = 'เกิดข้อผิดพลาด';
             header('location: Admin-Menulist.php#'.$Mid);
         }

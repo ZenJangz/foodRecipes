@@ -1,6 +1,6 @@
 <?php
-include '../connect.php';
 session_start();
+include '../connect.php';
 
 if (!$connect) {
     die("Connection failed: " . mysqli_connect_error());
@@ -123,15 +123,19 @@ function convertToEmbedURL($originalURL) {
         VALUES ('$menuName', '$menuEP', '$menuHow1', '$imgURLMain', '$imgURLSec1', '$imgURLSec2', '$imgURLSec3', '$Menu_Mat1', '$embedURL')";
 
         if (mysqli_query($connect, $sql)) {
+            
+            $_SESSION['Up_menuname'] = $menuName;
+            $_SESSION['SWA-ICO'] = 'success';
             $_SESSION['Alert'] = "บันทึกข้อมูลสำเร็จ";
             header('Location: ../Add-Menu.php');
             exit;
         } else {
+            $_SESSION['SWA-ICO'] = 'error';
+            $_SESSION['Up_menuname'] = $menuName;
             $_SESSION['Alert'] = "บันทึกข้อมูลผิดพลาดโปรดลองใหม่";
             header('Location: ../Add-Menu.php');
             exit;
         }
     }
-    mysqli_close($connect);
 }
 exit;
