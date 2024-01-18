@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if ($_SESSION['Position'] == 0) {
     echo '
@@ -39,22 +38,26 @@ $uid = $data['ID'];
     <title>Add-Menu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js"></script>
 </head>
 <?php include('AdminHeader.php'); ?>
 
 <body>
     <div class="container mt-5">
         <h2 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600 text-center">Users List</h2>
-        <?php 
-            if(!empty($_SESSION['Alert'])){
-        ?>
-        <p class="text-center bg-danger text-white py-1" style="font-size:1.5rem;"><?php
-        if(!empty($_SESSION['Alert'])){
-            echo $_SESSION['Alert'];
-        }
-        ?></p>
-        <?php }?>
-        <?php unset($_SESSION['Alert'])?>
+        <?php if (!empty($_SESSION['Alert'])) { ?>
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "<?= $_SESSION['Alert'] ?>",
+                showConfirmButton: false,
+                timer: 3500
+            });
+        </script>
+    <?php } ?>
+        
         <table class="table">
             <thead>
                 <tr>
@@ -69,6 +72,7 @@ $uid = $data['ID'];
 
             </thead>
             <tbody>
+            <a href="Admin-List-Users-AddUser.php"><button class="btn btn-success my-2">Add User</button></a>
                 <?php
                 // ดึงข้อมูลผู้ใช้งานจากฐานข้อมูล (ในกรณีนี้จะให้คุณแก้ไขการดึงข้อมูลตามฐานข้อมูลที่คุณใช้)
 
@@ -82,7 +86,7 @@ $uid = $data['ID'];
                         <td id="<?=$user['ID']?>"><?=$user['date']?></td>
                         <td id="<?=$user['ID']?>">
                             <a href='Admin-List-Users-Edit.php?id=<?=$user['ID']?>'><button class='btn btn-warning'>Edit</button></a>
-                            <a href='Admin-List-Users-Delete.php?id=<?=$user['ID']?>' onclick="return confirm('จะลบ user id: <?=$user['ID']?>, username: <?=$user['username']?> หรอ??');" role="button">
+                            <a href='Admin-List-Users-Delete.php?id=<?=$user['ID']?>' class="delete-user-link" user-id="<?=$user['ID'];?>" user-name="<?= $user['username']; ?>">
                                 <button class='btn btn-danger'>Delete</button>
                             </a>
                         </td>
@@ -90,8 +94,37 @@ $uid = $data['ID'];
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <a href="Admin-List-Users-AddUser.php"><button class="btn btn-success">Add User</button></a>
     </div>
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var deleteMenuLinks = document.querySelectorAll('.delete-user-link');
+                deleteMenuLinks.forEach(function(link) {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        var userId = this.getAttribute('user-id');
+                        var userName = this.getAttribute('user-name');
+
+                        // แสดง SweetAlert สำหรับการยืนยันการลบ
+                        Swal.fire({
+                            title: "ต้องการลบ User: " + userName + " ออกจากระบบ??",
+                            text: "คำเตือนไม่สามารถกู้คืนรายการที่ถูกลบได้",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "ใช่ลบ User " + userName + " !!"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // ลิงค์ไปยังหน้า Admin-MenuDelete.php พร้อมส่งค่า id_menu
+                                window.location.href = "Admin-List-Users-Delete.php?id=" + userId;
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+<?php unset($_SESSION['Alert']);
+        unset($_SESSION['Menu-Name']) ?>
 
     <!-- <script>
   function confirmDelete(event) {

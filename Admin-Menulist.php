@@ -176,26 +176,6 @@ $query_Menu = mysqli_query($connect, $sql);
             <?php endforeach; ?>
         </div>
         <script>
-            // ตรวจสอบว่ามีการตั้ง $_SESSION['Alert'] หรือไม่
-            <?php if (isset($_SESSION['Alert'])) : ?>
-                <?php if ($_SESSION['Alert']['type'] === 'success') : ?>
-                    // แสดง SweetAlert สำหรับการลบเมนูสำเร็จ
-                    Swal.fire({
-                        title: "Deleted!",
-                        text: "Your file has been deleted.",
-                        icon: "success"
-                    });
-                <?php elseif ($_SESSION['Alert']['type'] === 'error') : ?>
-                    // แสดง SweetAlert สำหรับการลบเมนูที่เกิดข้อผิดพลาด
-                    Swal.fire({
-                        title: "Error!",
-                        text: "<?php echo $_SESSION['Alert']['message']; ?>",
-                        icon: "error"
-                    });
-                <?php endif; ?>
-            <?php endif; ?>
-
-            // ตรวจสอบคลิกลิงค์ลบเมนู
             document.addEventListener("DOMContentLoaded", function() {
                 var deleteMenuLinks = document.querySelectorAll('.delete-menu-link');
                 deleteMenuLinks.forEach(function(link) {
@@ -206,13 +186,13 @@ $query_Menu = mysqli_query($connect, $sql);
 
                         // แสดง SweetAlert สำหรับการยืนยันการลบ
                         Swal.fire({
-                            title: "ต้องการลบเมนู " + menuName + " ออกจากระบบ??",
+                            title: "ต้องการลบ User: " + menuName + " ออกจากระบบ??",
                             text: "คำเตือนไม่สามารถกู้คืนรายการที่ถูกลบได้",
                             icon: "warning",
                             showCancelButton: true,
                             confirmButtonColor: "#3085d6",
                             cancelButtonColor: "#d33",
-                            confirmButtonText: "ใช่ ลบเมนู " + menuName + " !!"
+                            confirmButtonText: "ใช่ลบ User " + menuName + " !!"
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 // ลิงค์ไปยังหน้า Admin-MenuDelete.php พร้อมส่งค่า id_menu

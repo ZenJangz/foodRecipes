@@ -35,8 +35,8 @@ if($_SESSION['Position']==0){
   $query = mysqli_query($connect, $Sql) or die(mysqli_error($connect));
   
 
-  if($query == true){
-    $_SESSION['Alert'] = 'ลบ User ID: '.$uid. ' หรือ Username: '.$uname .' ออกจากระบบแล้ว';
+  if($query == true){ 
+    $_SESSION['Alert'] = 'ลบ Username: '.$uname. ' หรือ UserID: '.$uid .' ออกจากระบบแล้ว';
     header('Location: Admin-List-Users.php#' . $uid);
     exit();
   }else{
