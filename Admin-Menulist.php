@@ -219,15 +219,15 @@ $query_Menu = mysqli_query($connect, $sql);
             } elseif (!empty($data['Image_URL_Sec1'])) {
                 return $data['Image_URL_Sec1'];
             } elseif (!empty($data['Image_Name_Sec1'])) {
-                return $data['Image_Name_Sec1'];
+                return 'Admin/Image_Uploaded/' .$data['Image_Name_Sec1'];
             } elseif (!empty($data['Image_URL_Sec2'])) {
                 return $data['Image_URL_Sec2'];
             } elseif (!empty($data['Image_Name_Sec2'])) {
-                return $data['Image_Name_Sec2'];
+                return 'Admin/Image_Uploaded/' .$data['Image_Name_Sec2'];
             } elseif (!empty($data['Image_URL_Sec3'])) {
                 return $data['Image_URL_Sec3'];
             } elseif (!empty($data['Image_Name_Sec3'])) {
-                return $data['Image_Name_Sec3'];
+                return 'Admin/Image_Uploaded/' .$data['Image_Name_Sec3'];
             } else {
                 return 'Admin/Image_Uploaded/NO-IMG.png';
             }
