@@ -51,7 +51,8 @@ header a {
 .main-img{
     position: absolute;
     right: 5%;
-    top: 10%;
+    top: 13%;
+    max-width: 1000rem;
 }
 .main-img-02{
     position: absolute;
@@ -62,7 +63,18 @@ header a {
     max-width: 35rem;
 }
 .main-img img{
-    max-width: 40rem;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: block;
+    max-width: 40%;
+}
+.main-img-img{
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 .main-img2{
     position: absolute;

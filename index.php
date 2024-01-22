@@ -1,20 +1,21 @@
 <?php
-    session_start();
+session_start();
 //     ตรวจสอบว่าผู้ใช้เข้าสู่ระบบแล้วหรือยัง
 if (isset($_SESSION['username'])) {
-    header("Location: welcome.php"); 
+    header("Location: welcome.php");
 }
 include 'connect.php';
 
-$sql ="SELECT a_views FROM a_data";
+$sql = "SELECT a_views FROM a_data";
 $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($result);
-$a_views = $row['a_views']; 
+$a_views = $row['a_views'];
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,8 +25,7 @@ $a_views = $row['a_views'];
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-
-    #displayedImage {
+        #displayedImage {
         animation: fadeInOut 7s ease-in-out infinite;
     }
 
@@ -49,13 +49,14 @@ $a_views = $row['a_views'];
             opacity: 0;
         }
     }
-</style>
+    </style>
 
 </head>
+
 <body>
     <header>
         <div class="logo-1">
-           <h1><a href="index.php">food<span>Recipes</span></a></h1>
+            <h1><a href="index.php">food<span>Recipes</span></a></h1>
             <li class="nav">
                 <a href="index.php" class="Active">Home</a>
                 <a href="about.php">About</a>
@@ -70,14 +71,30 @@ $a_views = $row['a_views'];
         <!-- <div class="main-img">
             <img src="img/Untitled-1.png" alt="">
         </div> -->
+        <?php
+        // กำหนดที่พาธของโฟลเดอร์
+        $folderPath = 'img/';
+
+        // กำหนดรูปแบบของไฟล์ที่ต้องการค้นหา (.png)
+        $filePattern = $folderPath . '*.png';
+
+        // ใช้ฟังก์ชัน glob เพื่อดึงรายชื่อไฟล์ที่ตรงกับรูปแบบที่กำหนด
+        $files = glob($filePattern);
+
+        // นับจำนวนไฟล์
+        $fileCount = count($files);
+        ?>
+
+
+
         <div class="main-img" id="imageContainer">
-            <img src="img/1.png" alt="Image" id="displayedImage">
+            <img src="img/1.png" alt="Image" id="displayedImage" class="main-img-img">
         </div>
 
 
 
 
-        
+
         <div class="ms1">
             <h1>เริ่มทำอาหาร<br>กับสูตรเมนูสุดพิเศษ<br>ของเราสิ</h1>
             <p>วันนี้มาเรียนสูตรเจ๋ง ๆ กันดีกว่า! อยากได้สูตรการทำแต่ละภาคใช่ไหมล่ะ? <br>เตรียมพบกับสูตรที่ฟินสุด ๆ รับรองได้เลย!</p>
@@ -101,7 +118,7 @@ $a_views = $row['a_views'];
                 currentImageIndex++;
 
                 // Reset to the first image if it exceeds the total number of images
-                if (currentImageIndex > 5) {
+                if (currentImageIndex > <?=$fileCount?>) {
                     currentImageIndex = 1;
                 }
 
@@ -111,4 +128,5 @@ $a_views = $row['a_views'];
         });
     </script>
 </body>
+
 </html>
