@@ -32,11 +32,11 @@
                 title: "<?= $_SESSION['Alert'] ?>",
                 Text: "เพิ่มลงในเมนูที่ชอบแล้ว",
                 showConfirmButton: false,
-                timer: 2000
+                timer: 1000
             });
         </script>
     <?php } ?>
-    <?php unset($_SESSION['Alert']) ?>
+    <?php if(!empty($_SESSION['Alert'])){unset($_SESSION['Alert']);}?>
 <div class="container d-flex flex-wrap m-auto justify-content-center" style="max-width: 100%;">
     <?php foreach ($query_Menu as $data) : ?>
     <a href="Menu-detail-B1.php?Menu-ID=<?=$data['id_menu']?>">
@@ -111,8 +111,4 @@ function getImageUrl($data)
                 });
             });
         </script>
-
-
-
-
-        <?php unset($_SESSION['Alert']);
+        <?php if(!empty($_SESSION['Alert'])){unset($_SESSION['Alert']);}?>

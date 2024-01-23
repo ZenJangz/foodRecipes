@@ -28,6 +28,7 @@ $a_views = $row['a_views'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/icon/ico.png" type="image/png">
     <?php include('HeaderStyle.php'); ?>
     <style>
 
@@ -199,14 +200,14 @@ $a_views = $row['a_views'];
         <div class="col-md-3 col-sm-3">
             <div class="our-team">
                 <div class="pic">
-                    <a href=""><img src="https://scontent.fhdy4-1.fna.fbcdn.net/v/t39.30808-6/393181302_1041145223750500_989314428675455250_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeGkWpJsZ9XBzUUb1NJIPANT-gTLXE6DISb6BMtcToMhJkeVlq1PXV_fbWHGx7OJWYwjI-yCh4I3LW4g1_Wfuo5n&_nc_ohc=Qqip8YF6fJoAX81fkUi&_nc_ht=scontent.fhdy4-1.fna&oh=00_AfAiRWqz0c-QGesopA_GqMXoTzJqnaj5FgTdhqGRYtY3gw&oe=65A92D89"></a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100035650962189"><img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/393181302_1041145223750500_989314428675455250_n.jpg?stp=dst-jpg_p370x247&amp;_nc_cat=104&amp;ccb=1-7&amp;_nc_sid=fa004d&amp;_nc_ohc=lgiFfFA6BPcAX_BhuZZ&amp;_nc_ht=scontent.xx&amp;edm=AN6CN6oEAAAA&amp;oh=00_AfADbVoduWC8Np-FxjX7JtdsiMHMyV3UeoJ9lafzF76RRw&amp;oe=65B50B09"></a>
                 </div>
                 <div class="team-content">
                     <h3 class="title">โอมครับ โอมครับ</h3>
                     <span class="post">Data Entry</span>
                     <ul class="social">
-                        <li><a href="https://www.facebook.com/profile.php?id=100035650962189"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="https://www.facebook.com/messages/t/100035650962189"><i class="fa-solid fa-message"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100035650962189"><i class="fab fa-facebook"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/messages/t/100035650962189"><i class="fa-solid fa-message"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -214,14 +215,14 @@ $a_views = $row['a_views'];
         <div class="col-md-3 col-sm-3">
             <div class="our-team">
                 <div class="pic">
-                    <a href=""><img src="https://scontent.fhdy4-1.fna.fbcdn.net/v/t39.30808-6/378123367_327669299832309_6260876466707356402_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeGosRtbNRLPawDv3MKLPnn-qfDK6YtPuSWp8Mrpi0-5JXMLFm580cUHD1t4iI-B0mEBLtd-qoXnHquoJkKpKnzV&_nc_ohc=ffAPVdlH8qwAX85xFC3&_nc_ht=scontent.fhdy4-1.fna&oh=00_AfDkIYtCUQ8g5osztPL0wEoBvDR2S8lv79_scNk2xGGl_Q&oe=65A9E3DB"></a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100077677238365"><img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/378123367_327669299832309_6260876466707356402_n.jpg?stp=dst-jpg_p370x247&amp;_nc_cat=111&amp;ccb=1-7&amp;_nc_sid=fa004d&amp;_nc_ohc=Hg3HtwhrfCwAX_eqEG6&amp;_nc_ht=scontent.xx&amp;edm=AN6CN6oEAAAA&amp;oh=00_AfAjSskrbm45U1GHuvk2Sgm7sn1q13mVkipYUOXBfn3HiA&amp;oe=65B5C15B"></a>
                 </div>
                 <div class="team-content">
                     <h3 class="title">Songpon ST</h3>
                     <span class="post">web developer</span>
                     <ul class="social">
-                        <li><a href="https://www.facebook.com/profile.php?id=100077677238365"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="https://www.facebook.com/messages/t/100077677238365"><i class="fa-solid fa-message"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100077677238365"><i class="fab fa-facebook"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/messages/t/100077677238365"><i class="fa-solid fa-message"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -229,14 +230,14 @@ $a_views = $row['a_views'];
         <div class="col-md-3 col-sm-3">
             <div class="our-team">
                 <div class="pic">
-                    <a href=""><img src="https://scontent.fhdy4-1.fna.fbcdn.net/v/t39.30808-6/355867296_242935645117869_8281874176667782391_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeHS-eXbRIAmqV6HFVREJTh1-3Ym1cQ0gkn7dibVxDSCScs2MX7qvZeBj3M9YVDsI5OfUuKHKypxOsNn7dejYGzH&_nc_ohc=OCBaf6_C9TcAX-l0hQC&_nc_ht=scontent.fhdy4-1.fna&oh=00_AfAmUuQp6o8m5nhlPcQLO78CEhHLMWLyxdvunTm2l2wgEg&oe=65A8FD70"></a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100082043061698"><img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/355867296_242935645117869_8281874176667782391_n.jpg?stp=dst-jpg_p370x247&amp;_nc_cat=107&amp;ccb=1-7&amp;_nc_sid=fa004d&amp;_nc_ohc=QBGr53Y8ZzgAX-SubPJ&amp;_nc_ht=scontent.xx&amp;edm=AN6CN6oEAAAA&amp;oh=00_AfCThXQuuaxkASq4P5Oe_6HdW1O8s0w1zKcV-YrZDi6Hiw&amp;oe=65B4DAF0"></a>
                 </div>
                 <div class="team-content">
                     <h3 class="title">Wirawat Auraikun</h3>
                     <span class="post">Data Entry</span>
                     <ul class="social">
-                        <li><a href="https://www.facebook.com/profile.php?id=100082043061698"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="https://www.facebook.com/messages/t/100082043061698"><i class="fa-solid fa-message"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100082043061698"><i class="fab fa-facebook"></i></a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/messages/t/100082043061698"><i class="fa-solid fa-message"></i></a></li>
                     </ul>
                 </div>
             </div>

@@ -32,7 +32,7 @@ $mid = $_GET['id'];
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu-List</title>
+    <title>Menu-Detail</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="AdminHome.css">
@@ -232,7 +232,7 @@ $row = mysqli_fetch_array($query);
                                     } else if (!empty($row['Img_Name_Main'])) {
                                         echo 'Admin/Image_Uploaded/' . $row['Img_Name_Main'];
                                     } else if (!empty($row['Img_URL_Main'])) {
-                                        echo $row['Img_URL_Main'];
+                                        echo $row['Img_URL_Mai<title>n'];
                                     } else {
                                         echo 'https://italiancinemaaudiences.org/wp-content/themes/trend/assets/img/empty/424x500.png';
                                     }
