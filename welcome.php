@@ -34,6 +34,33 @@ $data = mysqli_fetch_assoc($row);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        #displayedImage {
+        animation: fadeInOut 7s ease-in-out infinite;
+    }
+
+    @keyframes fadeInOut {
+        0% {
+            opacity: 0;
+        }
+        10% {
+            opacity: 0;
+        }
+        25% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 1;
+        }
+        75% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    </style>
 </head>
 <body>
     <header>
@@ -50,9 +77,30 @@ $data = mysqli_fetch_assoc($row);
         </div>
     </header>
     <main>
-        <div class="main-img">
-            <img src="img/Untitled-2.png" alt="">
+        <!-- <div class="main-img">
+            <img src="img/Untitled-1.png" alt="">
+        </div> -->
+        <?php
+        // กำหนดที่พาธของโฟลเดอร์
+        $folderPath = 'img/';
+
+        // กำหนดรูปแบบของไฟล์ที่ต้องการค้นหา (.png)
+        $filePattern = $folderPath . '*.png';
+
+        // ใช้ฟังก์ชัน glob เพื่อดึงรายชื่อไฟล์ที่ตรงกับรูปแบบที่กำหนด
+        $files = glob($filePattern);
+
+        // นับจำนวนไฟล์
+        $fileCount = count($files);
+        ?>
+
+
+        <div class="main-img" id="imageContainer">
+            <img src="img/<?=$fileCount?>.png" alt="Image" id="displayedImage" class="main-img-img">
         </div>
+
+
+
         <div class="ms1">
             <h1>ยินดีต้อนรับ <span style="color:rgb(255,174,0)";><?php echo $_SESSION['username'];?></span></h1>
             <h1>เริ่มทำอาหารกับสูตร<br>เมนูสุดพิเศษของเราสิ</h1>
@@ -72,5 +120,25 @@ $data = mysqli_fetch_assoc($row);
     <footer>
 
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let currentImageIndex = 1;
+            const imageContainer = document.getElementById("imageContainer");
+            const displayedImage = document.getElementById("displayedImage");
+
+            setInterval(function () {
+                // Increment the current image index
+                currentImageIndex++;
+
+                // Reset to the first image if it exceeds the total number of images
+                if (currentImageIndex > <?=$fileCount?>) {
+                    currentImageIndex = 1;
+                }
+
+                // Update the source of the displayed image
+                displayedImage.src = `img/${currentImageIndex}.png`;
+            }, 7000); // Change image every 5 seconds
+        });
+    </script>
 </body>
 </html>

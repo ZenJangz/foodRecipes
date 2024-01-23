@@ -17,12 +17,26 @@
         transition: .3s ease;
         transform: scale(1.05);
     }
+    .btn-custom{
+        background-color: rgb(255,174,0);
+    }
     
 </style>
-<?php if(!empty($_SESSION['Alert'])){?>
-    <h3 class="text-center mt-5"><i class="fa-solid fa-plus me-1"></i>เมนู <?=$_SESSION['Alert'];?> ถูกบันทึกลงรายการที่ชอบแล้ว</h3>
-    <?php unset($_SESSION['Alert'])?>
-<?php }?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js"></script>
+<?php if (!empty($_SESSION['Alert'])) { ?>
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "<?= $_SESSION['Alert'] ?>",
+                Text: "เพิ่มลงในเมนูที่ชอบแล้ว",
+                showConfirmButton: false,
+                timer: 2000
+            });
+        </script>
+    <?php } ?>
+    <?php unset($_SESSION['Alert']) ?>
 <div class="container d-flex flex-wrap m-auto justify-content-center" style="max-width: 100%;">
     <?php foreach ($query_Menu as $data) : ?>
     <a href="Menu-detail-B1.php?Menu-ID=<?=$data['id_menu']?>">
@@ -39,12 +53,13 @@
                     </a>
                     <hr class="my-4" />
                     <p class="lead text-center"><strong>บันทึกลงรายการที่ชอบ</strong></p>
-                    <a id="<?= $data['id_menu']; ?>" href="Heart-NL.php?id=<?= $data['id_menu']; ?>" class="btn btn-danger p-md-1 mb-0 w-100"><i class="fa-solid fa-heart me-1"></i>บันทึก</a>
+                    <a id="<?= $data['id_menu']; ?>" href="Heart-NL.php?id=<?= $data['id_menu']; ?>" data-menu-id="<?= $data['id_menu']; ?>" data-menu-name="<?= $data['Menu_name']; ?>" class="delete-menu-link btn btn-custom text-white shadow p-md-1 mb-0 w-100"><i class="fa-solid fa-heart me-1"></i>บันทึก</a>
                 </div>
             </div>
         </section>
     <?php endforeach; ?>
 </div>
+
 <?php
 function getImageUrl($data)
 {
@@ -69,3 +84,35 @@ function getImageUrl($data)
     }
 }
 ?>
+<script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var deleteMenuLinks = document.querySelectorAll('.delete-menu-link');
+                deleteMenuLinks.forEach(function(link) {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        var menuId = this.getAttribute('data-menu-id');
+                        var menuName = this.getAttribute('data-menu-name'); // เพิ่มตัวแปรนี้
+
+                        // แสดง SweetAlert สำหรับการยืนยันการลบ
+                        Swal.fire({
+                            title: "เพิ่มเมนู: " + menuName + " ลงในรายการที่ชอบ??",
+                            icon: "question",
+                            showCancelButton: true,
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            confirmButtonText: "ใช่เพิ่มเมนู " + menuName,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // ลิงค์ไปยังหน้า Admin-MenuDelete.php พร้อมส่งค่า id_menu
+                                window.location.href = "Heart-NL.php?id=" + menuId;
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+
+
+
+
+        <?php unset($_SESSION['Alert']);
