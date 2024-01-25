@@ -51,7 +51,7 @@ $a_views = $row['a_views'];
             </form>
         </div>
         <div class="img-contact">
-            <img src="img/00015-1203125986.png" alt="">
+            <img src="img/.old/sdaf.png" alt="">
         </div>
     </main>
 
