@@ -114,8 +114,7 @@ $whdata = $col_wh['COUNT(*)'];
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">ข้อมูลจากเดือนที่ผ่านมา</span>
+                   
                   </p>
                 </div>
               </div>
@@ -135,8 +134,8 @@ $whdata = $col_wh['COUNT(*)'];
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 3.48%</span>
-                    <span class="text-nowrap">ข้อมูลจากอาทิตย์ที่ผ่านมา</span>
+                    
+                    
                   </p>
                 </div>
               </div>
@@ -163,6 +162,7 @@ $whdata = $col_wh['COUNT(*)'];
               </div>
             </div>
             <div class="col-xl-3 col-lg-6">
+              <a href="Admin-Messages.php" class=" text-decoration-none">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
                   <div class="row">
@@ -177,11 +177,11 @@ $whdata = $col_wh['COUNT(*)'];
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                    <span class="text-nowrap">ข้อมูลจากเดือนที่ผ่านมา</span>
+                                       
                   </p>
                 </div>
               </div>
+              </a>
             </div>
           </div>
         </div>
@@ -229,29 +229,24 @@ $whdata = $col_wh['COUNT(*)'];
               </div>
               </a>
             </div>
-            <!-- <div class="col-xl-3 col-lg-6">
-              <a href="">
+            <div class="col-xl-3 col-lg-6 Menu-H">
+              <a href="Admin-Messages.php" class=" text-decoration-none">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">ข้อเสนอแนะจาก users</h5>
-                      <span class="h2 font-weight-bold mb-0"><?=$whdata?><span class="text-secondary" style="font-size: 1rem; font-weight:lighter;"> จดหมาย</span></span>
+                      <h1 class="card-title text-center mb-0" style="color: #333; font-size:2rem;">ข้อเสนอแนะจาก Users</h1>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
                       <i class="fa-solid fa-envelope"></i>
                       </div>
                     </div>
                   </div>
-                  <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
-                    <span class="text-nowrap">ข้อมูลจากเดือนที่ผ่านมา</span>
-                  </p>
                 </div>
               </div>
               </a>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>

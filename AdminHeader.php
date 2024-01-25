@@ -21,7 +21,7 @@
                         <a href="Admin-List-Users.php" class="nav-link text-white"><i class="fa-solid fa-users me-1"></i>Users</a>
                     </li>
                     <li>
-                        <a href="" class="nav-link text-white"><i class="fa-solid fa-envelope me-1 "></i>ข้อเสนอแนะ</a>
+                        <a href="Admin-Messages.php" class="nav-link text-white"><i class="fa-solid fa-envelope me-1 "></i>ข้อเสนอแนะ</a>
                     </li>
                     <li>
                         <a href="logout.php" class="nav-link text-white"><i class="fa-solid fa-right-from-bracket me-1 "></i>Logout</a>
