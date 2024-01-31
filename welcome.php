@@ -108,6 +108,7 @@ $data = mysqli_fetch_assoc($row);
             <p>วันนี้มาเรียนสูตรเจ๋ง ๆ กันดีกว่า! อยากได้สูตรการทำแต่ละภาคใช่ไหมล่ะ? <br>เตรียมพบกับสูตรที่ฟินสุด ๆ รับรองได้เลย!</p>
         </div>
         <div class="btugetstart">
+        <a target="_blank" href="https://forms.gle/xAFuBubijy3oKpAw9">แบบสำรวจ</a>
             <a href="Recipes.php">เริ่มเล่อ</a>
         </div>
         <!-- <div class="btugetstart">

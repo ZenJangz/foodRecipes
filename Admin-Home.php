@@ -193,7 +193,7 @@ $whdata = $col_wh['COUNT(*)'];
       <div class="container-fluid">
         <div class="header-body">
           <div class="row">
-            <div class="col-xl-3 col-lg-6 Menu-H">
+            <div class="col-xl-3 col-lg-6 ">
               <a href="Add-Menu.php" class="text-decoration-none">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
@@ -211,7 +211,7 @@ $whdata = $col_wh['COUNT(*)'];
               </div>
               </a>
             </div>
-            <div class="col-xl-3 col-lg-6 Menu-H">
+            <div class="col-xl-3 col-lg-6 ">
               <a href="Admin-Menulist.php" class=" text-decoration-none">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
@@ -229,13 +229,31 @@ $whdata = $col_wh['COUNT(*)'];
               </div>
               </a>
             </div>
-            <div class="col-xl-3 col-lg-6 Menu-H">
+            <div class="col-xl-3 col-lg-6">
               <a href="Admin-Messages.php" class=" text-decoration-none">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
                       <h1 class="card-title text-center mb-0" style="color: #333; font-size:2rem;">ข้อเสนอแนะจาก Users</h1>
+                    </div>
+                    <div class="col-auto">
+                      <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                      <i class="fa-solid fa-envelope"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <a target="_blank" href="https://docs.google.com/forms/d/1FR27_TlskpyriyycyFwycWz7Ljp8RGHLzDLajiFumyo/edit#responses" class=" text-decoration-none">
+              <div class="card card-stats mb-4 mb-xl-0">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                      <h1 class="card-title text-center mb-0" style="color: #333; font-size:2rem;">แบบสำรวจ</h1>
                     </div>
                     <div class="col-auto">
                       <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">

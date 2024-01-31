@@ -104,12 +104,12 @@ $uid = $data['id_Contact'];
 
                         // แสดง SweetAlert สำหรับการยืนยันการลบ
                         Swal.fire({
-                            title: "ต้องการลบ User: " + userName + " ออกจากระบบ??",
+                            title: "ต้องการลบข้อเสนอ: " + userName + " ใช่ไหม?",
                             text: "คำเตือนไม่สามารถกู้คืนรายการที่ถูกลบได้",
                             icon: "warning",
                             showCancelButton: true,
-                            confirmButtonColor: "#3085d6",
-                            cancelButtonColor: "#d33",
+                            confirmButtonColor: "#d33",
+                            cancelButtonColor: "#3085d6",
                             confirmButtonText: "ใช่ลบ User " + userName + " !!"
                         }).then((result) => {
                             if (result.isConfirmed) {

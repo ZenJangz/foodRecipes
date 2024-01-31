@@ -39,7 +39,7 @@
     <?php if(!empty($_SESSION['Alert'])){unset($_SESSION['Alert']);}?>
 <div class="container d-flex flex-wrap m-auto justify-content-center" style="max-width: 100%;">
     <?php foreach ($query_Menu as $data) : ?>
-    <a href="Menu-detail-B1.php?Menu-ID=<?=$data['id_menu']?>">
+    <a target="_blank" href="Menu-detail-B1.php?Menu-ID=<?=$data['id_menu']?>">
         <section class="HoverThis mt-5" style="max-width: 20%;">
             <div class="card mx-2">
                 <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">

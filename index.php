@@ -101,6 +101,7 @@ $a_views = $row['a_views'];
             <p>วันนี้มาเรียนสูตรเจ๋ง ๆ กันดีกว่า! อยากได้สูตรการทำแต่ละภาคใช่ไหมล่ะ? <br>เตรียมพบกับสูตรที่ฟินสุด ๆ รับรองได้เลย!</p>
         </div>
         <div class="btugetstart">
+            <a target="_blank" href="https://forms.gle/xAFuBubijy3oKpAw9">แบบสำรวจ</a>
             <a href="Recipes-nl.php">เริ่มเล่อ</a>
             <a href="LoginPAGE/login.php" class="logi">Login</a>
         </div>

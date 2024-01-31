@@ -1,10 +1,11 @@
 <?php
     session_start();
     // ตรวจสอบว่าผู้ใช้เข้าสู่ระบบแล้วหรือยัง
-if (!isset($_SESSION['username'])) {
-    header("Location: contact-nl.php"); // เปลี่ยนเส้นทางไปยังหน้า index.html
-    exit(); // ออกจากสคริปต์
-}
+    if (!isset($_SESSION['username'])) {
+        $Login= 0;
+    }else{
+        $Login=1;
+    }
 
 // โค้ดอื่นๆ ของหน้า welcome.php
 // ...
@@ -28,17 +29,28 @@ $a_views = $row['a_views'];
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-    <div class="logo-1">
-            <h1><a href="welcome.php">food<span>Recipes</span></a></h1>
+<header>
+        <div class="logo-1">
+           <h1><a href="index.php">food<span>Recipes</span></a></h1>
+           <?php if($Login==1){?>
             <li class="nav">
                 <a href="welcome.php">Home</a>
                 <a href="about.php">About</a>
-                <a href="Recipes.php">Recipes</a>
-                <a href="contact.php" class="Active">Contact</a>
+                <a href="Recipes.php" class="Active">Recipes</a>
+                <a href="contact.php">Contact</a>
                 <a href="MyFavorite.php">Favorate</a>
                 <a href="logout.php" class="Runaway">Logout</a>
             </li>
+            <?php }else{?>
+                <li class="nav">
+                <a href="index.php">Home</a>
+                <a href="about.php">About</a>
+                <a href="Recipes.php">Recipes</a>
+                <a href="contact.php" class="Active">Contact</a>
+                <a href="LoginPAGE/login.php">Login</a>
+                <a href="Regis.php" class="Runaway">Register</a>
+            </li>
+            <?php }?>
         </div>
     </header>
     <main>
@@ -57,12 +69,17 @@ $a_views = $row['a_views'];
                 <br>
                 <textarea name="message" id="message" placeholder="ข้อความ" class="message-contact"></textarea required>
                 <br>
+                <?php if(!empty($_SESSION['Alert'])){   ?>
+                    <p class="submit-contact1"><?=$_SESSION['Alert']?></p>
+                <?php }?>
+                <br>
                 <input type="submit" value="ส่ง" class="submit-contact">
             </form>
         </div>
         <div class="img-contact">
-            <img src="img/00015-1203125986.png" alt="">
+            <img src="img/.old/sdaf.png" alt="">
         </div>
+        <?php unset($_SESSION['Alert']) ?>
     </main>
 
     <footer>

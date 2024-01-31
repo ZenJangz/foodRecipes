@@ -190,8 +190,8 @@ $query_Menu = mysqli_query($connect, $sql);
                             text: "คำเตือนไม่สามารถกู้คืนรายการที่ถูกลบได้",
                             icon: "warning",
                             showCancelButton: true,
-                            confirmButtonColor: "#3085d6",
-                            cancelButtonColor: "#d33",
+                            confirmButtonColor: "#d33",
+                            cancelButtonColor: "#3085d6",
                             confirmButtonText: "ใช่ลบ User " + menuName + " !!"
                         }).then((result) => {
                             if (result.isConfirmed) {
