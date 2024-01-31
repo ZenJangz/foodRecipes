@@ -38,7 +38,6 @@
     <?php } ?>
     <?php if(!empty($_SESSION['Alert'])){unset($_SESSION['Alert']);}?>
 
-<div class="menu-list">
     <div class="container-fluid d-flex flex-wrap">
     <div class="row">
         <?php foreach ($query_Menu as $data) : ?>
@@ -47,7 +46,7 @@
                     <section class="HoverThis mt-5">
                         <div class="card mx-2">
                             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                                <img src="<?php echo getImageUrl($data); ?>" alt="Menu Image" class="img-fluid w-100 ImgHover">
+                                <img src="<?php echo getImageUrl($data); ?>" alt="Menu Image" class="img-fluid w-100 ImgHover" style="max-height: 20vh; object-fit:cover;">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title font-weight-bold"><a target="_blank" href="Menu-detail-B1.php?Menu-ID=<?= $data['id_menu'] ?>" class="text-decoration-none" style="color: #333;"><?= $data['Menu_name']; ?></a></h5>
@@ -64,7 +63,6 @@
             </div>
         <?php endforeach; ?>
     </div>
-</div>
 
 
 
