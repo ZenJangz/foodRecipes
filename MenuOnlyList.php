@@ -38,7 +38,7 @@
     <?php } ?>
     <?php if(!empty($_SESSION['Alert'])){unset($_SESSION['Alert']);}?>
 
-    
+<div class="menu-list">
     <div class="container-fluid d-flex flex-wrap">
     <div class="row">
         <?php foreach ($query_Menu as $data) : ?>
