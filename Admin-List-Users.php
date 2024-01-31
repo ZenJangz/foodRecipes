@@ -58,7 +58,8 @@ $uid = $data['ID'];
         </script>
     <?php } ?>
         
-        <table class="table">
+        <div class="table-responsive">
+            <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -94,6 +95,7 @@ $uid = $data['ID'];
                 <?php endforeach; ?>
             </tbody>
         </table>
+        </div>
     </div>
     <script>
             document.addEventListener("DOMContentLoaded", function() {

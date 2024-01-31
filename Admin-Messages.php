@@ -45,8 +45,9 @@ $uid = $data['id_Contact'];
 
 <body>
     <div class="container mt-5">
-        <h2 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600 text-center">Messages From Users</h2>
-        <?php if (!empty($_SESSION['Alert'])) { ?>
+    <h2 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600 text-center">Messages From Users</h2>
+
+    <?php if (!empty($_SESSION['Alert'])) { ?>
         <script>
             Swal.fire({
                 position: "top-end",
@@ -57,7 +58,8 @@ $uid = $data['id_Contact'];
             });
         </script>
     <?php } ?>
-        
+
+    <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
@@ -65,27 +67,23 @@ $uid = $data['id_Contact'];
                     <th>Username</th>
                     <th>Lastname</th>
                     <th>Email</th>
-                    <th>Massages</th>
+                    <th>Messages</th>
                     <th>Date</th>
                     <th>Action</th>
                 </tr>
-
             </thead>
             <tbody>
-                <?php
-                // ดึงข้อมูลผู้ใช้งานจากฐานข้อมูล (ในกรณีนี้จะให้คุณแก้ไขการดึงข้อมูลตามฐานข้อมูลที่คุณใช้)
-
-                foreach ($contact as $contacts):?>
+                <?php foreach ($contact as $contacts): ?>
                     <tr>
-                        <td id="<?=$contacts['id_Contact']?>"><?=$contacts['id_Contact']?></td>
-                        <td id="<?=$contacts['id_Contact']?>"><?=$contacts['name']?></td>
-                        <td id="<?=$contacts['id_Contact']?>"><?=$contacts['lastname']?></td>
-                        <td id="<?=$contacts['id_Contact']?>"><?=$contacts['email']?></td>
-                        <td id="<?=$contacts['id_Contact']?>"><?=$contacts['message']?></td>
-                        <td id="<?=$contacts['id_Contact']?>"><?=$contacts['date']?></td>
-                        <td id="<?=$contacts['id_Contact']?>">
-                            <a href='' class="delete-user-link" user-id="<?=$contacts['id_Contact'];?>" user-name="<?= $contacts['name']; ?>">
-                                <button class='btn btn-danger'>Delete</button>
+                        <td id="<?= $contacts['id_Contact'] ?>"><?= $contacts['id'] ?></td>
+                        <td id="<?= $contacts['id_Contact'] ?>"><?= $contacts['name'] ?></td>
+                        <td id="<?= $contacts['id_Contact'] ?>"><?= $contacts['lastname'] ?></td>
+                        <td id="<?= $contacts['id_Contact'] ?>"><?= $contacts['email'] ?></td>
+                        <td id="<?= $contacts['id_Contact'] ?>"><?= $contacts['message'] ?></td>
+                        <td id="<?= $contacts['id_Contact'] ?>"><?= $contacts['date'] ?></td>
+                        <td id="<?= $contacts['id_Contact'] ?>">
+                            <a href="" class="delete-user-link" user-id="<?= $contacts['id_Contact']; ?>" user-name="<?= $contacts['name']; ?>">
+                                <button class="btn btn-danger">Delete</button>
                             </a>
                         </td>
                     </tr>
@@ -93,6 +91,8 @@ $uid = $data['id_Contact'];
             </tbody>
         </table>
     </div>
+</div>
+
     <script>
             document.addEventListener("DOMContentLoaded", function() {
                 var deleteMenuLinks = document.querySelectorAll('.delete-user-link');
