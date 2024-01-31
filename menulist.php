@@ -49,6 +49,16 @@
     .menu-list ul{
 
     }
+
+@media screen and (max-width:858px) {
+    .Search-input {
+    padding: .3rem;
+    padding-right: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: .3s ease;
+}
+}
 </style>
 <div class="Search-System">
     <form method="GET" action="" class="Search-Form " id="searchForm">

@@ -200,7 +200,7 @@ $a_views = $row['a_views'];
         <div class="col-md-3 col-sm-3">
             <div class="our-team">
                 <div class="pic">
-                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100035650962189"><img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/393181302_1041145223750500_989314428675455250_n.jpg?stp=dst-jpg_p370x247&amp;_nc_cat=104&amp;ccb=1-7&amp;_nc_sid=fa004d&amp;_nc_ohc=lgiFfFA6BPcAX_BhuZZ&amp;_nc_ht=scontent.xx&amp;edm=AN6CN6oEAAAA&amp;oh=00_AfADbVoduWC8Np-FxjX7JtdsiMHMyV3UeoJ9lafzF76RRw&amp;oe=65B50B09"></a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100035650962189"><img src="img/Fb_Pro/Om.jpg"></a>
                 </div>
                 <div class="team-content">
                     <h3 class="title">โอมครับ โอมครับ</h3>
@@ -215,7 +215,7 @@ $a_views = $row['a_views'];
         <div class="col-md-3 col-sm-3">
             <div class="our-team">
                 <div class="pic">
-                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100077677238365"><img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/378123367_327669299832309_6260876466707356402_n.jpg?stp=dst-jpg_p370x247&amp;_nc_cat=111&amp;ccb=1-7&amp;_nc_sid=fa004d&amp;_nc_ohc=Hg3HtwhrfCwAX_eqEG6&amp;_nc_ht=scontent.xx&amp;edm=AN6CN6oEAAAA&amp;oh=00_AfAjSskrbm45U1GHuvk2Sgm7sn1q13mVkipYUOXBfn3HiA&amp;oe=65B5C15B"></a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100077677238365"><img src="img/Fb_Pro/Songpon.jpg"></a>
                 </div>
                 <div class="team-content">
                     <h3 class="title">Songpon ST</h3>
@@ -230,7 +230,7 @@ $a_views = $row['a_views'];
         <div class="col-md-3 col-sm-3">
             <div class="our-team">
                 <div class="pic">
-                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100082043061698"><img src="https://scontent.xx.fbcdn.net/v/t39.30808-6/355867296_242935645117869_8281874176667782391_n.jpg?stp=dst-jpg_p370x247&amp;_nc_cat=107&amp;ccb=1-7&amp;_nc_sid=fa004d&amp;_nc_ohc=QBGr53Y8ZzgAX-SubPJ&amp;_nc_ht=scontent.xx&amp;edm=AN6CN6oEAAAA&amp;oh=00_AfCThXQuuaxkASq4P5Oe_6HdW1O8s0w1zKcV-YrZDi6Hiw&amp;oe=65B4DAF0"></a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100082043061698"><img src="img/Fb_Pro/WIRAWAT.jpg"></a>
                 </div>
                 <div class="team-content">
                     <h3 class="title">Wirawat Auraikun</h3>

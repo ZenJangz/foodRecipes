@@ -36,8 +36,8 @@ $a_views = $row['a_views'];
             <li class="nav">
                 <a href="welcome.php">Home</a>
                 <a href="about.php">About</a>
-                <a href="Recipes.php" class="Active">Recipes</a>
-                <a href="contact.php">Contact</a>
+                <a href="Recipes.php">Recipes</a>
+                <a href="contact.php" class="Active">Contact</a>
                 <a href="MyFavorite.php">Favorate</a>
                 <a href="logout.php" class="Runaway">Logout</a>
             </li>

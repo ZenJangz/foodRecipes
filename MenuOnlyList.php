@@ -37,28 +37,36 @@
         </script>
     <?php } ?>
     <?php if(!empty($_SESSION['Alert'])){unset($_SESSION['Alert']);}?>
-<div class="container d-flex flex-wrap m-auto justify-content-center" style="max-width: 100%;">
-    <?php foreach ($query_Menu as $data) : ?>
-    <a target="_blank" href="Menu-detail-B1.php?Menu-ID=<?=$data['id_menu']?>">
-        <section class="HoverThis mt-5" style="max-width: 20%;">
-            <div class="card mx-2">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                        <img src="<?php echo getImageUrl($data); ?>" alt="Menu Image" class="img-fluid w-100 ImgHover" style="max-height: 20vh; object-fit:cover;">
-                    
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title font-weight-bold"><a target="_blank" href="Menu-detail-B1.php?Menu-ID=<?=$data['id_menu']?>" class="text-decoration-none" style="color:#333;"><?= $data['Menu_name']; ?></a></h5>
-                    <p class="mb-2"><i class="fa-solid fa-bowl-food me-1"></i> • อาหาร </p>
-                    <p class="card-text"><?= $data['Menu_EP']; ?></p>
-                    </a>
-                    <hr class="my-4" />
-                    <p class="lead text-center"><strong>บันทึกลงรายการที่ชอบ</strong></p>
-                    <a id="<?= $data['id_menu']; ?>" href="Heart-NL.php?id=<?= $data['id_menu']; ?>" data-menu-id="<?= $data['id_menu']; ?>" data-menu-name="<?= $data['Menu_name']; ?>" class="delete-menu-link btn btn-custom text-white shadow p-md-1 mb-0 w-100"><i class="fa-solid fa-heart me-1"></i>บันทึก</a>
-                </div>
+
+    
+    <div class="container-fluid d-flex flex-wrap">
+    <div class="row">
+        <?php foreach ($query_Menu as $data) : ?>
+            <div class="col-lg-2">
+                <a target="_blank" href="Menu-detail-B1.php?Menu-ID=<?= $data['id_menu'] ?>">
+                    <section class="HoverThis mt-5">
+                        <div class="card mx-2">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="<?php echo getImageUrl($data); ?>" alt="Menu Image" class="img-fluid w-100 ImgHover">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold"><a target="_blank" href="Menu-detail-B1.php?Menu-ID=<?= $data['id_menu'] ?>" class="text-decoration-none" style="color: #333;"><?= $data['Menu_name']; ?></a></h5>
+                                <p class="mb-2"><i class="fa-solid fa-bowl-food me-1"></i> • อาหาร </p>
+                                <p class="card-text"><?= $data['Menu_EP']; ?></p>
+                                </a>
+                                <hr class="my-4" />
+                                <p class="lead text-center"><strong>บันทึกลงรายการที่ชอบ</strong></p>
+                                <a id="<?= $data['id_menu']; ?>" href="Heart-NL.php?id=<?= $data['id_menu']; ?>" data-menu-id="<?= $data['id_menu']; ?>" data-menu-name="<?= $data['Menu_name']; ?>" class="delete-menu-link btn btn-custom text-white shadow p-md-1 mb-0 w-100"><i class="fa-solid fa-heart me-1"></i>บันทึก</a>
+                            </div>
+                        </div>
+                    </section>
+                </a>
             </div>
-        </section>
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>
 </div>
+
+
 
 <?php
 function getImageUrl($data)
@@ -98,7 +106,7 @@ function getImageUrl($data)
                             title: "เพิ่มเมนู: " + menuName + " ลงในรายการที่ชอบ??",
                             icon: "question",
                             showCancelButton: true,
-                            confirmButtonColor: "#3085d6",
+                            confirmButtonColor: "#ffae00",
                             cancelButtonColor: "#d33",
                             confirmButtonText: "ใช่เพิ่มเมนู " + menuName,
                         }).then((result) => {
