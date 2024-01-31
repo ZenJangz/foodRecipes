@@ -49,7 +49,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css
             <li class="nav">
                 <a href="index.php">Home</a>
                 <a href="about.php">About</a>
-                <a href="Recipes">Recipes</a>
+                <a href="Recipes.php">Recipes</a>
                 <a href="contact.php">Contact</a>
                 <a href="LoginPAGE/login.php" class="Runaway">Login</a>
             </li>

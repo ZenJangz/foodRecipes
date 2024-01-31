@@ -47,7 +47,7 @@
                     
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title font-weight-bold"><a><?= $data['Menu_name']; ?></a></h5>
+                    <h5 class="card-title font-weight-bold"><a target="_blank" href="Menu-detail-B1.php?Menu-ID=<?=$data['id_menu']?>" class="text-decoration-none" style="color:#333;"><?= $data['Menu_name']; ?></a></h5>
                     <p class="mb-2"><i class="fa-solid fa-bowl-food me-1"></i> • อาหาร </p>
                     <p class="card-text"><?= $data['Menu_EP']; ?></p>
                     </a>
