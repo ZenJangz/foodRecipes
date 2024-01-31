@@ -91,7 +91,7 @@ $whdata = $col_wh['COUNT(*)'];
     </style>
 </head>
 <?php include('AdminHeader.php'); ?>
-<body>
+<body class="bg-gradient-primary">
 <body class="bg-default">
   <div class="main-content">
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
@@ -120,6 +120,7 @@ $whdata = $col_wh['COUNT(*)'];
               </div>
             </div>
             <div class="col-xl-3 col-lg-6">
+              <a href="Admin-List-Users.php" class=" text-decoration-none">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
                   <div class="row">
@@ -139,8 +140,10 @@ $whdata = $col_wh['COUNT(*)'];
                   </p>
                 </div>
               </div>
+              </a>
             </div>
             <div class="col-xl-3 col-lg-6">
+              <a href="Admin-Menulist.php" class=" text-decoration-none">
               <div class="card card-stats mb-4 mb-xl-0">
                 <div class="card-body">
                   <div class="row">
@@ -155,11 +158,10 @@ $whdata = $col_wh['COUNT(*)'];
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-warning mr-2"><i class="fas"></i>    </span>
-                    <span class="text-nowrap">    </span>
                   </p>
                 </div>
               </div>
+              </a>
             </div>
             <div class="col-xl-3 col-lg-6">
               <a href="Admin-Messages.php" class=" text-decoration-none">
