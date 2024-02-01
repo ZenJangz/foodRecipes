@@ -230,7 +230,7 @@ $a_views = $row['a_views'];
         <div class="col-md-3 col-sm-3">
             <div class="our-team">
                 <div class="pic">
-                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100082043061698"><img src="img/Fb_Pro/WIRAWAT.jpg"></a>
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100082043061698"><img src="img/Fb_Pro/IMG_0365.jpeg"></a>
                 </div>
                 <div class="team-content">
                     <h3 class="title">Wirawat Auraikun</h3>
