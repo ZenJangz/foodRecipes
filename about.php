@@ -10,6 +10,7 @@ if (!isset($_SESSION['username'])) {
 // โค้ดอื่นๆ ของหน้า welcome.php
 // ...
 ?>
+
 <?
 $sql = "SELECT a_views FROM a_data";
 $result = mysqli_query($connect, $sql);
